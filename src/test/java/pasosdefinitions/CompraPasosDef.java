@@ -72,6 +72,14 @@ public class CompraPasosDef {
             productoComprado1 = producto1;
             productoComprado2 = producto2;
 
+            // Registrar en Serenity los productos usados desde CSV
+            Serenity.recordReportData()
+                    .withTitle("Productos cargados desde CSV")
+                    .andContents(
+                            "Producto 1: " + producto1 + "\n" +
+                                    "Producto 2: " + producto2
+                    );
+
             usuario.attemptsTo(
                     AbrirPagina.enDemoblaze()
             );
